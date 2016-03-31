@@ -1,0 +1,16 @@
+eclipse.preferences.version=1
+encoding//src/com/wbtc/beans/Person.java=UTF-8
+encoding//src/com/wbtc/dao/InsertDataIntoDataHub.java=UTF-8
+encoding//src/com/wbtc/dao/InsertDataIntoDataHubResponse.java=UTF-8
+encoding//src/com/wbtc/dao/InsertPersonIntoDataHub.java=UTF-8
+encoding//src/com/wbtc/dao/InsertPersonIntoDataHubResponse.java=UTF-8
+encoding//src/com/wbtc/dao/MySQLAccess.java=UTF-8
+encoding//src/com/wbtc/dao/MySQLAccessService.java=UTF-8
+encoding//src/com/wbtc/dao/MySQLAccessServiceLocator.java=UTF-8
+encoding//src/com/wbtc/dao/MySQLAccessSoapBindingStub.java=UTF-8
+encoding//src/com/wbtc/dao/TestDataBase.java=UTF-8
+encoding//src/com/wbtc/dao/TestDataBaseResponse.java=UTF-8
+encoding//src/com/wbtc/webservice/LoadDataHub.java=UTF-8
+encoding//src/com/wbtc/webservice/LoadDataHubService.java=UTF-8
+encoding//src/com/wbtc/webservice/LoadDataHubServiceLocator.java=UTF-8
+encoding//src/com/wbtc/webservice/LoadDataHubSoapBindingStub.java=UTF-8
