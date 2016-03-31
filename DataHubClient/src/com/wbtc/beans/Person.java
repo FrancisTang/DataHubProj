@@ -9,7 +9,7 @@ package com.wbtc.beans;
 
 public class Person  implements java.io.Serializable {
     private java.lang.String firstName;
-  
+        // test line //
     private java.lang.String lastName;
 
     private java.lang.Object[] phoneNUmber;
