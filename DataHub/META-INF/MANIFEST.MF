@@ -1,0 +1,39 @@
+Manifest-Version: 1.0
+Bnd-LastModified: 1449448041203
+Build-Jdk: 1.7.0_80
+Built-By: rgoers
+Bundle-Description: The Apache Log4j 1.x Compatibility API
+Bundle-DocURL: http://www.apache.org
+Bundle-License: http://www.apache.org/licenses/LICENSE-2.0.txt
+Bundle-ManifestVersion: 2
+Bundle-Name: Apache Log4j 1.x Compatibility API
+Bundle-SymbolicName: org.apache.logging.log4j.1.2-api
+Bundle-Vendor: Apache Software Foundation
+Bundle-Version: 2.5.0
+Created-By: Apache Maven Bundle Plugin
+Export-Package: org.apache.log4j;version="2.5.0";uses:="org.apache.log4j
+ .spi,org.apache.logging.log4j.core",org.apache.log4j.config;version="2.
+ 5.0",org.apache.log4j.helpers;version="2.5.0",org.apache.log4j.spi;vers
+ ion="2.5.0";uses:="org.apache.log4j,org.apache.logging.log4j.core",org.
+ apache.log4j.xml;version="2.5.0";uses:="javax.xml.parsers,org.apache.lo
+ g4j.config,org.apache.log4j.spi,org.w3c.dom"
+Implementation-Title: Apache Log4j 1.x Compatibility API
+Implementation-Vendor: Apache Software Foundation
+Implementation-Vendor-Id: org.apache
+Implementation-Version: 2.5
+Import-Package: javax.xml.parsers,org.apache.logging.log4j;version="[2.5
+ ,3)",org.apache.logging.log4j.core;version="[2.5,3)",org.apache.logging
+ .log4j.core.util;version="[2.5,3)",org.apache.logging.log4j.message;ver
+ sion="[2.5,3)",org.apache.logging.log4j.spi;version="[2.5,3)",org.w3c.d
+ om
+Log4jReleaseCount: ninth
+Log4jReleaseKey: B3D8E1BA
+Log4jReleaseManager: Ralph Goers
+Log4jReleaseVersion: 2.5
+Require-Capability: osgi.ee;filter:="(&(osgi.ee=JavaSE)(version=1.7))"
+Specification-Title: Apache Log4j 1.x Compatibility API
+Specification-Vendor: Apache Software Foundation
+Specification-Version: 2.5
+Tool: Bnd-2.3.0.201405100607
+X-Compile-Source-JDK: 1.7
+X-Compile-Target-JDK: 1.7

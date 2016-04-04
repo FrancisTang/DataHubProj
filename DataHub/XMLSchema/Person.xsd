@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.wtbc.org/Name" xmlns:tns="http://www.wtbc.org/Name" elementFormDefault="qualified">
+
+    <element name="Person" type="tns:Person"></element>
+    
+
+
+    <complexType name="Person">
+    	<sequence>
+    		<element name="FirstName" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="LastName" type="string" maxOccurs="1" minOccurs="1"></element>
+    		<element name="PhoneNUmber" type="string" maxOccurs="unbounded" minOccurs="1"></element>
+    	</sequence>
+    </complexType>
+</schema>

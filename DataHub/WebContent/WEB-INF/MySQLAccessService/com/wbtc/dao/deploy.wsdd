@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from MySQLAccessService WSDL service -->
+
+  <service name="MySQLAccess" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://dao.wbtc.com"/>
+      <parameter name="wsdlServiceElement" value="MySQLAccessService"/>
+      <parameter name="schemaQualified" value="http://beans.wbtc.com,http://dao.wbtc.com,http://xml.apache.org/xml-soap"/>
+      <parameter name="wsdlServicePort" value="MySQLAccess"/>
+      <parameter name="className" value="com.wbtc.dao.MySQLAccess"/>
+      <parameter name="wsdlPortType" value="MySQLAccess"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://dao.wbtc.com" name="insertDataIntoDataHub" qname="operNS:insertDataIntoDataHub" soapAction="">
+        <parameter xmlns:pns="http://dao.wbtc.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:parm1" type="tns:string"/>
+        <parameter xmlns:pns="http://dao.wbtc.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:parm2" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://dao.wbtc.com" name="testDataBase" qname="operNS:testDataBase" soapAction="">
+      </operation>
+      <operation xmlns:operNS="http://dao.wbtc.com" name="insertPersonIntoDataHub" qname="operNS:insertPersonIntoDataHub" soapAction="">
+        <parameter xmlns:pns="http://dao.wbtc.com" xmlns:tns="http://beans.wbtc.com" qname="pns:person" type="tns:Person"/>
+      </operation>
+      <parameter name="allowedMethods" value="insertPersonIntoDataHub testDataBase insertDataIntoDataHub"/>
+
+      <typeMapping xmlns:ns="http://dao.wbtc.com" qname="ns:&gt;insertPersonIntoDataHubResponse" type="java:com.wbtc.dao.InsertPersonIntoDataHubResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://dao.wbtc.com" qname="ns:&gt;testDataBaseResponse" type="java:com.wbtc.dao.TestDataBaseResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <arrayMapping xmlns:ns="http://dao.wbtc.com" xmlns:cmp-ns="http://www.w3.org/2001/XMLSchema" qname="ns:ArrayOf_xsd_anyType" type="java:java.lang.Object[]" innerType="cmp-ns:anyType" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://dao.wbtc.com" qname="ns:&gt;insertDataIntoDataHub" type="java:com.wbtc.dao.InsertDataIntoDataHub" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://dao.wbtc.com" qname="ns:&gt;insertDataIntoDataHubResponse" type="java:com.wbtc.dao.InsertDataIntoDataHubResponse" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://dao.wbtc.com" qname="ns:&gt;testDataBase" type="java:com.wbtc.dao.TestDataBase" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://dao.wbtc.com" qname="ns:&gt;insertPersonIntoDataHub" type="java:com.wbtc.dao.InsertPersonIntoDataHub" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+      <typeMapping xmlns:ns="http://beans.wbtc.com" qname="ns:Person" type="java:com.wbtc.beans.Person" serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" encodingStyle=""/>
+  </service>
+</deployment>

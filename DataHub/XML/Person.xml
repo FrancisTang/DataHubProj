@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:Person xmlns:tns="http://www.wtbc.org/Name" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.wtbc.org/Name Person.xsd ">
+  <tns:FirstName>My First Name</tns:FirstName>
+  <tns:LastName>My Last Name</tns:LastName>
+  <tns:PhoneNUmber>tns:PhoneNUmber</tns:PhoneNUmber>
+</tns:Person>

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://dao.wbtc.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://dao.wbtc.com" xmlns:intf="http://dao.wbtc.com" xmlns:tns1="http://beans.wbtc.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://dao.wbtc.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://xml.apache.org/xml-soap"/>
+   <import namespace="http://beans.wbtc.com"/>
+   <element name="insertDataIntoDataHub">
+    <complexType>
+     <sequence>
+      <element name="parm1" type="xsd:string"/>
+      <element name="parm2" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="insertDataIntoDataHubResponse">
+    <complexType/>
+   </element>
+   <element name="testDataBase">
+    <complexType/>
+   </element>
+   <element name="testDataBaseResponse">
+    <complexType/>
+   </element>
+   <element name="insertPersonIntoDataHub">
+    <complexType>
+     <sequence>
+      <element name="person" type="tns1:Person"/>
+     </sequence>
+    </complexType>
+   </element>
+   <complexType name="ArrayOf_xsd_anyType">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+   <element name="insertPersonIntoDataHubResponse">
+    <complexType/>
+   </element>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://xml.apache.org/xml-soap" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://dao.wbtc.com"/>
+   <import namespace="http://beans.wbtc.com"/>
+   <complexType name="Vector">
+    <sequence>
+     <element maxOccurs="unbounded" minOccurs="0" name="item" type="xsd:anyType"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema elementFormDefault="qualified" targetNamespace="http://beans.wbtc.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://xml.apache.org/xml-soap"/>
+   <import namespace="http://dao.wbtc.com"/>
+   <complexType name="Person">
+    <sequence>
+     <element name="firstName" nillable="true" type="xsd:string"/>
+     <element name="lastName" nillable="true" type="xsd:string"/>
+     <element name="phoneNUmber" nillable="true" type="impl:ArrayOf_xsd_anyType"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="insertDataIntoDataHubResponse">
+
+      <wsdl:part element="impl:insertDataIntoDataHubResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertDataIntoDataHubRequest">
+
+      <wsdl:part element="impl:insertDataIntoDataHub" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="testDataBaseRequest">
+
+      <wsdl:part element="impl:testDataBase" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertPersonIntoDataHubRequest">
+
+      <wsdl:part element="impl:insertPersonIntoDataHub" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="testDataBaseResponse">
+
+      <wsdl:part element="impl:testDataBaseResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="insertPersonIntoDataHubResponse">
+
+      <wsdl:part element="impl:insertPersonIntoDataHubResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="MySQLAccess">
+
+      <wsdl:operation name="insertDataIntoDataHub">
+
+         <wsdl:input message="impl:insertDataIntoDataHubRequest" name="insertDataIntoDataHubRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:insertDataIntoDataHubResponse" name="insertDataIntoDataHubResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="testDataBase">
+
+         <wsdl:input message="impl:testDataBaseRequest" name="testDataBaseRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:testDataBaseResponse" name="testDataBaseResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="insertPersonIntoDataHub">
+
+         <wsdl:input message="impl:insertPersonIntoDataHubRequest" name="insertPersonIntoDataHubRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:insertPersonIntoDataHubResponse" name="insertPersonIntoDataHubResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="MySQLAccessSoapBinding" type="impl:MySQLAccess">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="insertDataIntoDataHub">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="insertDataIntoDataHubRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="insertDataIntoDataHubResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="testDataBase">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="testDataBaseRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="testDataBaseResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="insertPersonIntoDataHub">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="insertPersonIntoDataHubRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="insertPersonIntoDataHubResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="MySQLAccessService">
+
+      <wsdl:port binding="impl:MySQLAccessSoapBinding" name="MySQLAccess">
+
+         <wsdlsoap:address location="http://localhost:8081/DataHub/services/MySQLAccess"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

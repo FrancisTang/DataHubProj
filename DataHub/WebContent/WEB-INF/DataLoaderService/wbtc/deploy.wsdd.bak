@@ -1,0 +1,33 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from DataLoaderService WSDL service -->
+
+  <service name="DataLoader" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://wbtc"/>
+      <parameter name="wsdlServiceElement" value="DataLoaderService"/>
+      <parameter name="schemaQualified" value="http://wbtc"/>
+      <parameter name="wsdlServicePort" value="DataLoader"/>
+      <parameter name="className" value="wbtc.DataLoaderSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="DataLoader"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="farenheitToCelsius" qname="operNS:farenheitToCelsius" xmlns:operNS="http://wbtc" returnQName="retNS:farenheitToCelsiusReturn" xmlns:retNS="http://wbtc" returnType="rtns:float" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:farenheit" xmlns:pns="http://wbtc" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="celsiusToFarenheit" qname="operNS:celsiusToFarenheit" xmlns:operNS="http://wbtc" returnQName="retNS:celsiusToFarenheitReturn" xmlns:retNS="http://wbtc" returnType="rtns:float" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:celsius" xmlns:pns="http://wbtc" type="tns:float" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:dataString" xmlns:pns="http://wbtc" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="farenheitToCelsius celsiusToFarenheit"/>
+
+  </service>
+</deployment>
