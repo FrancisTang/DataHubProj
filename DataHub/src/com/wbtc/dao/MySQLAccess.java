@@ -6,9 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.Date;
 
-import com.wbtc.beans.Person;
+import com.wbtc.beans.vho.Person;
 
 public class MySQLAccess {
   private Connection connect = null;
@@ -117,6 +118,48 @@ public class MySQLAccess {
 
   }
 
+  public void insertDonationTxIntoDataHub(int salesForceID, ArrayList<String> donationTx, Connection dataHubConnection, int loadingStatus  ) throws Exception {
+    try {
+
+
+	  // Statements allow to issue SQL queries to the database
+	  statement = dataHubConnection.createStatement();
+
+	  // PreparedStatements can use variables and are more efficient
+	  preparedStatement = dataHubConnection.prepareStatement("insert into datahub.donation_tx_delta values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+
+	  
+      // Salesforce ID
+      preparedStatement.setInt(1, salesForceID);
+      // Kutoa ID
+      preparedStatement.setInt(2, Integer.valueOf(donationTx.get(0)));
+      //Donation Number  -- to be determined - defaulted to 0 for now
+      preparedStatement.setInt(3, 0);
+      //Project Number
+      preparedStatement.setString(4, donationTx.get(13));
+      //Project
+      preparedStatement.setString(5, donationTx.get(14));
+      //Subcode
+      preparedStatement.setString(6, donationTx.get(15));
+      //Motivation Code
+      preparedStatement.setString(7, donationTx.get(16));
+      //Donation Date
+      java.util.Date utilDate = new java.util.Date();
+      preparedStatement.setDate(8, new java.sql.Date(utilDate.getTime()));
+      //Amount
+      Double donationAmt=Double.parseDouble(donationTx.get(44));
+      preparedStatement.setDouble(9, donationAmt);
+      //Loading Status
+      preparedStatement.setInt(10, loadingStatus);
+      preparedStatement.executeUpdate();
+    
+    } catch (Exception e) {
+      throw e;
+    } finally {
+      close();
+    }
+
+  }
   private void writeResultSet(ResultSet resultSet) throws SQLException {
     // ResultSet is initially before the first data set
     while (resultSet.next()) {

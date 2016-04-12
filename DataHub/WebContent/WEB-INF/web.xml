@@ -9,14 +9,16 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
   <listener>
     <listener-class>
-		com.wbtc.utilities.TimerFactory
+		com.wbtc.toolbox.TimerFactory
     </listener-class>
   </listener>
-    
-  
+  <listener>
+    <listener-class>
+		com.wbtc.toolbox.C3p0ConnectionFactory
+    </listener-class>
+  </listener>
   <servlet>
     <display-name>Apache-Axis Servlet</display-name>
     <servlet-name>AxisServlet</servlet-name>

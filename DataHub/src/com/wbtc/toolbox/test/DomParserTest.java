@@ -1,8 +1,8 @@
-package com.wbtc.test;
+package com.wbtc.toolbox.test;
 
-import com.wbtc.beans.Employee;
+import com.wbtc.beans.vho.Employee;
 import com.wbtc.dao.MySQLAccess;
-import com.wbtc.utilities.XmlDomParser;
+import com.wbtc.toolbox.XmlDomParser;
 
 import java.util.List;
 

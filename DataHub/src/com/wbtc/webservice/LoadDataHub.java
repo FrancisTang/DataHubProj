@@ -1,6 +1,6 @@
 package com.wbtc.webservice;
 
-import com.wbtc.beans.Person;
+import com.wbtc.beans.vho.Person;
 import com.wbtc.dao.MySQLAccess;
 
 public class LoadDataHub

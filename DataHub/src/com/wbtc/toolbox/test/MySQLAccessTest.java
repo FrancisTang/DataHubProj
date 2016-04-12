@@ -1,4 +1,4 @@
-package com.wbtc.test;
+package com.wbtc.toolbox.test;
 
 import com.wbtc.dao.*;
 

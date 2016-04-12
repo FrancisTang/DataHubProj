@@ -1,4 +1,4 @@
-package com.wbtc.utilities;
+package com.wbtc.toolbox;
  
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -13,6 +13,30 @@ import com.wbtc.dao.MySQLAccess;
  */
  
 public class CSVFileUtilities {
+	
+	public BufferedReader loadCSVFile(String url) {
+		
+		BufferedReader crunchifyBuffer = null;
+		
+		try {
+			crunchifyBuffer = new BufferedReader(new FileReader(url));
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if (crunchifyBuffer != null) crunchifyBuffer.close();
+			} catch (IOException crunchifyException) {
+				crunchifyException.printStackTrace();
+			}
+		}
+		return crunchifyBuffer;
+	}
+	
+	
+
+	
 	public void readCSVFile() {
 		
 		BufferedReader crunchifyBuffer = null;
@@ -21,7 +45,7 @@ public class CSVFileUtilities {
 		
 		try {
 			String csvLine;
-			crunchifyBuffer = new BufferedReader(new FileReader("c:/data/temp/testcsv.txt"));
+			crunchifyBuffer = new BufferedReader(new FileReader("c:/data/temp/testdonations.csv"));
 			
 			// How to read file in java line by line?
 			while ((csvLine = crunchifyBuffer.readLine()) != null) {
@@ -31,7 +55,7 @@ public class CSVFileUtilities {
 				
 			// Insert CSV data into DB (example for file operation)
 			    MySQLAccess dao = new MySQLAccess();
-			    dao.insertDataIntoDataHub(csvArrayList.get(1), csvArrayList.get(2));
+			    dao.insertDataIntoDataHub(csvArrayList.get(0), csvArrayList.get(1));
 						
 			}
 			
@@ -52,7 +76,7 @@ public class CSVFileUtilities {
 		ArrayList<String> crunchifyResult = new ArrayList<String>();
 		
 		if (crunchifyCSV != null) {
-			String[] splitData = crunchifyCSV.split("\\s*,\\s*");
+			String[] splitData = crunchifyCSV.split("\\s*;\\s*");
 			for (int i = 0; i < splitData.length; i++) {
 				if (!(splitData[i] == null) || !(splitData[i].length() == 0)) {
 					crunchifyResult.add(splitData[i].trim());

@@ -1,8 +1,8 @@
-package com.wbtc.test;
+package com.wbtc.toolbox.test;
 
-import com.wbtc.beans.Person;
+import com.wbtc.beans.vho.Person;
 import com.wbtc.dao.MySQLAccess;
-import com.wbtc.utilities.XmlToJavaUtils;
+import com.wbtc.toolbox.XmlToJavaUtils;
 
 public class XmlToJavaUtilsTest {
   public static void main(String[] args) throws Exception {

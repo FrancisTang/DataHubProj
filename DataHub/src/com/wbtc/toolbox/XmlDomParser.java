@@ -1,4 +1,4 @@
-package com.wbtc.utilities;
+package com.wbtc.toolbox;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,7 +15,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import com.wbtc.beans.Employee;
+import com.wbtc.beans.vho.Employee;
 
 public class XmlDomParser {
 

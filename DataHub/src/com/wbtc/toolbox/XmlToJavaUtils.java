@@ -1,12 +1,11 @@
-package com.wbtc.utilities;
-
-import com.wbtc.beans.*;
-
+package com.wbtc.toolbox;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
+
+import com.wbtc.beans.vho.*;
 
 public class XmlToJavaUtils {
 
